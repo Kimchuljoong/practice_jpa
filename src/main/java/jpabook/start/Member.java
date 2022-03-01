@@ -1,0 +1,24 @@
+package jpabook.start;
+
+import lombok.Data;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Data
+@Entity
+@Table(name="Member")
+public class Member {
+
+    @Id
+    @Column(name = "ID")
+    private String id;
+
+    @Column(name = "NAME")
+    private String userName;
+
+    private Integer age;
+
+}
