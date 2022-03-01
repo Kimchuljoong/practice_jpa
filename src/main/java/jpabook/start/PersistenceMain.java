@@ -75,21 +75,14 @@ public class PersistenceMain {
         EntityManager em = emf.createEntityManager();
         EntityTransaction transaction = em.getTransaction();
 
-        try{
+        transaction.begin();
 
-            transaction.begin();
+        Member memberA = em.find(Member.class, "memberA");
+        Member memberB = em.find(Member.class, "memberB");
 
-            Member memberA = em.find(Member.class, "memberA");
-            Member memberB = em.find(Member.class, "memberB");
+        transaction.commit();
 
-            transaction.commit();
-
-        }catch (Exception e){
-            transaction.rollback();
-            e.printStackTrace();
-        }finally {
-            em.close();
-        }
+        em.close();
 
         emf.close();
 
