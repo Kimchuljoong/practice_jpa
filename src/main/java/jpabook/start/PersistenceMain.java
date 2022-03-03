@@ -10,7 +10,8 @@ public class PersistenceMain {
     public static void main(String[] args) {
 
         testDetached();
-
+        testClear();
+        closeEntityManager();
 
     }
 
